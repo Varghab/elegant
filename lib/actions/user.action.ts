@@ -5,9 +5,8 @@ import { User } from "../database/models/user.model";
 export async function createUser(UserDetails: CreateUserParams){
     try {
         await connectToDatabase();
-        const user = await User.create(UserDetails);
+        const user = await User.create({...UserDetails, displayName: UserDetails.username});
         if(user){
-            // Save user metada
             return {
                 success: true,
                 data: user
