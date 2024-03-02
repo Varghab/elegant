@@ -47,6 +47,10 @@ export const UserSchema = new Schema({
         type: String,
         required: true
     },
+    clerkId:{
+        type: String, 
+        required: true
+    },
     displayName:{
         type: String,
         minLength:[1,"Display name should be of atleast 1 character"],

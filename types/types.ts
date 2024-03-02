@@ -37,8 +37,8 @@ export type GetAllProductParams = {
 // Users
 
 export type CreateUserParams = {
-    name:string,
-    email:string,
-    username:string,
-    userId: string
+    clerkId:string,
+    email: string,
+    displayName: string,
+    fullName: string,
 }

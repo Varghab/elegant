@@ -5,7 +5,7 @@ import { User } from "../database/models/user.model";
 export async function createUser(UserDetails: CreateUserParams){
     try {
         await connectToDatabase();
-        const user = await User.create({...UserDetails, displayName: UserDetails.username});
+        const user = await User.create(UserDetails);
         if(user){
             return {
                 success: true,
