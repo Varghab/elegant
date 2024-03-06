@@ -1,4 +1,4 @@
-import { CreateProductParams, GetAllProductParams } from "@/types/types";
+import { CreateProductParams, GetAllProductParams, UpdataProductParams } from "@/types/types";
 import { connectToDatabase } from "../database/db.connection";
 import { Product } from "../database/models/product.model";
 
@@ -71,5 +71,34 @@ export async function getProductById(id:string){
         else throw new Error('Error while fetching product!')
     } catch (error:any) {
         console.log(error.message);
+    }
+}
+
+export async function updateProduct({updateDetails, productId}: UpdataProductParams){
+    try {
+        await connectToDatabase();
+        const updatedProduct = await Product.findByIdAndUpdate({_id: productId}, updateDetails, {new:true, runValidators:true});
+        if(updatedProduct){
+            return {
+                success: true,
+                data: updatedProduct
+            }
+        }
+        throw new Error("Product updation failed.")
+    } catch (error:any) {
+        console.log(error.message);
+        
+    }
+}
+
+export async function deleteProduct(productId: string){
+    try {
+        await connectToDatabase();
+        const deletedProduct = await Product.findByIdAndDelete({_id: productId});
+        if(deletedProduct) return {success: true};
+        throw new Error("Product deletion failed.");
+    } catch (error:any) {
+        console.log(error.message);
+        
     }
 }

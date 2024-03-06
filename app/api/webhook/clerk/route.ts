@@ -70,10 +70,10 @@ export async function POST(req: Request) {
         }
     })
     }
-  
-      return NextResponse.json({ message: 'OK', user: newUser })
+
+    return NextResponse.json({ message: 'OK', user: newUser })
     }
-  
+
     // if (eventType === 'user.updated') {
     //   const {id, image_url, first_name, last_name, username } = evt.data
   
@@ -96,7 +96,6 @@ export async function POST(req: Request) {
   
     //   return NextResponse.json({ message: 'OK', user: deletedUser })
     // }
-  
+
     return new Response('', { status: 200 })
-  }
-  
+}

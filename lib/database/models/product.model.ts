@@ -1,4 +1,5 @@
 import mongoose, { InferSchemaType, Schema, model, models } from "mongoose";
+import { Review } from "./review.model";
 
 const productImageSchema = {
     productUrl: String
@@ -94,10 +95,14 @@ export const ProductSchema = new Schema({
         averageRating: Number,
         ratingsCount: Number,
         totalRatings: Number, 
+    },
+    reviews: {
+        type: [mongoose.Types.ObjectId],
+        ref: Review
     }
 })
 
-export type Product = InferSchemaType<typeof ProductSchema>;
+// export type ProductType = InferSchemaType<typeof ProductSchema>;
 
 
-export const Product = models.Product || model('Product', ProductSchema);
+export const Product = models.Product || model('Product', ProductSchema)

@@ -16,14 +16,15 @@ export const nestedReviewSchema = {
         type: mongoose.Types.ObjectId,
         ref: User
     },
-    likes: Number,
+    // likes: Number,
 }
 
 export const ReviewSchema = new Schema({
     review:{
         type:String,
         minLength:[1, "Review should be of atleast 1 character"],
-        maxLength:[1500, "Review shouldn't be more than 1500 character"]
+        maxLength:[1500, "Review shouldn't be more than 1500 character"],
+        required: true
     },
     createdAt:{
         type: Date,
@@ -31,14 +32,18 @@ export const ReviewSchema = new Schema({
     },
     user:{
         type: mongoose.Types.ObjectId,
-        ref: User
+        ref: User,
+        required: true
     },
-    likes: Number,
+    likedByUsers:[mongoose.Types.ObjectId],
+    likes: {
+        type:Number
+    },
     rating: {
         type: Number,
         required:[true, "Please rate the product."]
     },
-    nestedRevies: {
+    nestedReviews: {
         type: [nestedReviewSchema]
     }
 })

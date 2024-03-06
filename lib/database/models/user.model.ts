@@ -1,5 +1,6 @@
 import mongoose, { InferSchemaType, Schema, model, models } from "mongoose";
 import { Order } from "./order.model";
+import { Product } from "./product.model";
 
 const wishlistSchema = {
     productName: String,
@@ -19,8 +20,15 @@ const addressSchema = {
     state: String,
     zipcode: Number
 }
+export type WishlistType = {
+    productName: string,
+    productImage: string,
+    color: string,
+    price: string,
+}
 
-type AddressType = {
+
+export type AddressType = {
     streetAddress:string;
     country:string,
     city:string,
@@ -75,8 +83,10 @@ export const UserSchema = new Schema({
     createdAt:{
         type:Date,
         default: Date.now
+    },
+    orders: {
+        type: [mongoose.Types.ObjectId], //store product ids
     }
-
 });
 
 

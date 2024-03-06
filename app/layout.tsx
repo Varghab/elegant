@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Almarai } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const almarai = Almarai({
+  style:"normal",
+  subsets:['arabic'],
+  weight:['300','400','700']
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,8 +26,10 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
-        <body className={inter.className}>
-          {children}
+        <body className={almarai.className}>
+          <Navbar />
+            {children}
+          <Footer />
           <Toaster />
         </body>
     </html>
