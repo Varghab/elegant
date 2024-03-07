@@ -48,7 +48,7 @@ const slideImages = [
   },
 ];
 
-export const BlogData = [
+const BlogData = [
   {
     id: 1,
     blogImage: "/assets/images/blog1.png",
