@@ -5,8 +5,8 @@ import React from 'react'
 const Feature = ({image, label, labelDescription}: {image:string, label:string, labelDescription:string}) => {
     
     return(
-        <div className='bg-[#F3F5F7] rounded-[2px] max-w-[500px] min-h-[12rem] flex items-center px-8'>
-            <div className='flex flex-col gap-2'>
+        <div className='bg-[#F3F5F7] rounded-[2px] max-w-[500px] min-h-[12rem] flex items-center md:px-8 px-3'>
+            <div className='flex flex-col gap-2 flex-wrap'>
                 <Image src={image} width={30} height={30} alt="Fast-shipping" />
                 <h1 className='text-xl font-semibold'>{label}</h1>
                 <p className='text-sm font-[300]'>{labelDescription}</p>

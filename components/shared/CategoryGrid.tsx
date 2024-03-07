@@ -6,8 +6,8 @@ const CategoryGrid = () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4"> 
-          <Link href={`/category=livingroom`}>
-          <div className=" bg-[#F3F5F7] relative ">
+          <Link className='h-full' href={`/category=livingroom`}>
+          <div className=" bg-[#F3F5F7] h-full relative ">
             <div className="absolute top-6 left-6 sm:top-10 sm:left-10 flex flex-col gap-1">
               <p className="sm:text-3xl text-2xl font-[500]">Living Room</p>
               <span className="flex items-center underline underline-offset-2">
@@ -21,9 +21,9 @@ const CategoryGrid = () => {
           </div>
           </Link>
           <div className="flex flex-col gap-4">
-            <Link className='h-full' href={`/category=bedroom`}>
+            <Link className='min-h-60' href={`/category=bedroom`}>
             <div className="bg-[#F3F5F7] h-full flex p-3 sm:p-6 gap-6 justify-between items-end">
-              <div className="flex flex-col gap-1 ">
+              <div className="flex flex-col gap-1 w-full">
                 <p className="sm:text-3xl text-2xl font-[500]">
                   Bedroom
                 </p>
@@ -32,12 +32,15 @@ const CategoryGrid = () => {
                   <Image alt="right-arrow" src="/assets/icons/arrow-right.svg" width={18} height={18} />
                 </span>
               </div>
-              <Image src="/assets/images/drawer.png" className="" alt="drawer" width={150} height={150} />
+              <div className='relative h-full max-w-60 w-full'>
+                <Image src="/assets/images/drawer.png" className="" alt="drawer" fill objectFit='contain' />
+
+              </div>
             </div>
             </Link>
-            <Link className='h-full' href={`/category=kitchen`}>
+            <Link className='min-h-60' href={`/category=kitchen`}>
             <div className="bg-[#F3F5F7] h-full flex p-3 py-6 sm:p-6 gap-6 justify-between items-end">
-              <div className="flex flex-col gap-1 ">
+              <div className="flex flex-col gap-1 max-w-40 w-full ">
                 <p className="sm:text-3xl text-2xl font-[500]">
                   Kitchen
                 </p>
@@ -46,7 +49,9 @@ const CategoryGrid = () => {
                   <Image alt="right-arrow" src="/assets/icons/arrow-right.svg" width={18} height={18} />
                 </span>
               </div>
-              <Image src="/assets/images/toaster.png" className="" alt="toaster" width={150} height={150} />
+              <div className='relative h-full w-full '>
+                <Image src="/assets/images/toaster.png" className="" alt="toaster" fill objectFit='contain' />
+              </div>
             </div>
             </Link>
           </div>
