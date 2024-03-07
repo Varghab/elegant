@@ -5,17 +5,6 @@ import ImageSlider from "@/components/shared/ImageSlider";
 import Newsletter from "@/components/shared/Newsletter";
 import ProductsCollection from "@/components/shared/ProductsCollection";
 import Sale from "@/components/shared/Sale";
-import { createProduct, getAllProducts } from "@/lib/actions/product.action";
-import { connectToDatabase } from "@/lib/database/db.connection";
-import {
-  SignInButton,
-  SignOutButton,
-  UserButton,
-  useAuth,
-  useClerk,
-} from "@clerk/nextjs";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 const FeatureData = [
   {
